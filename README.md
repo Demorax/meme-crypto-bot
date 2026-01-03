@@ -1,27 +1,27 @@
-# Crypto meme coins bot using  XGboost
-## Overview
-This project is a machine learning-based trading bot that leverages XGBoost, a powerful gradient boosting algorithm, 
-to identify potential buy/sell opportunities in meme coins based on market trends and technical indicators.
+# Crypto Meme Coins Bot s XGBoost
 
-Cryptocurrencies can generally be categorized into three market cap tiers:
+## Přehled
+Tento projekt je obchodní bot založený na strojovém učení, který využívá XGBoost, výkonný algoritmus gradientního boostingu,
+k identifikaci potenciálních příležitostí k nákupu/prodeji meme coinů na základě tržních trendů a technických indikátorů.
 
- - Large-cap coins (e.g., BTC, ETH) – Established, lower volatility.
- - Mid-cap coins – Emerging projects with moderate risk and reward.
- - Meme coins & small-cap coins (e.g., DOGE, SHIB, PEPE) – High volatility, speculative, and often driven by community hype.
+Kryptoměny lze obecně rozdělit do tří kategorií podle tržní kapitalizace:
 
-This bot focuses on meme coins and applies machine learning to identify potential sell signals based on market fluctuations, technical indicators, and past trends.
+- **Large-cap coiny** (např. BTC, ETH) – Zavedené, nižší volatilita.
+- **Mid-cap coiny** – Vznikající projekty se střední mírou rizika a výnosů.
+- **Meme coiny & small-cap coiny** (např. DOGE, SHIB, PEPE) – Vysoká volatilita, spekulativní a často řízené komunitním hype.
 
+Tento bot se zaměřuje na meme coiny a aplikuje strojové učení k identifikaci potenciálních signálů k prodeji/nákupu na základě kolísání trhu, technických indikátorů a minulých trendů.
 
-## Why XGBoost?
-Initially, I experimented with a neural network to predict buy and sell opportunities. However, I encountered two key challenges:
- - The dataset wasn't "hard enough" – Meme coin price movements are highly volatile but often follow simpler patterns that do not require deep learning.
- - Neural networks struggled to find clear patterns – The network failed to consistently recognize buy/sell signals, 
-likely due to the lack of deep feature interactions needed to justify a complex model.
+## Proč XGBoost?
+Zpočátku jsem experimentoval s neuronovou sítí pro predikci příležitostí k nákupu a prodeji. Nicméně jsem narazil na dva klíčové problémy:
+- **Dataset nebyl dostatečně "obtížný"** – Pohyby cen meme coinů jsou sice velmi volatilní, ale často sledují jednodušší vzory, které nevyžadují hluboké učení.
+- **Neuronové sítě měly problémy najít jasné vzory** – Síť nedokázala konzistentně rozpoznat signály k nákupu/prodeji,
+pravděpodobně kvůli nedostatku hlubokých interakcí mezi features, které by odůvodnily složitější model.
 
-## ⚠️ Disclaimer
+## ️ Upozornění
 
-This project is a **proof of concept** and is intended for **educational and research purposes only**.  
-It **does not constitute financial advice**, investment recommendations, or trading signals.  
-Past performance is **not** indicative of future results.  
+Tento projekt je **proof of concept** a je určen **pouze pro vzdělávací a výzkumné účely**.
+**Nejedná se o finanční poradenství**, investiční doporučení nebo obchodní signály.
+Minulá výkonnost **není** indikací budoucích výsledků.
 
-**Use this project at your own risk.**
+**Používejte tento projekt na vlastní riziko.**

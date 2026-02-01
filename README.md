@@ -36,14 +36,18 @@ V rámci učení PyTorch frameworku probíhá reimplementace buy modelu pomocí 
 | PR Curve analýza | ✅ Hotovo |
 | Výkonnost modelu | ⚠️ Vyžaduje zlepšení |
 
-### Aktuální výsledky
+### Aktuální výsledky (TimeSeriesSplit - férové porovnání)
 
-```
-Average Precision (AP): 0.079
-Best F1 Score: 0.18
-```
+| Metrika | XGBoost | PyTorch | Vítěz |
+|---------|---------|---------|-------|
+| **Average Precision** | 0.193 | 0.168 | XGBoost +15% |
+| **F1 Score (Buy)** | 0.44 | 0.29 | XGBoost +52% |
+| **Recall (Buy)** | 0.52 | 0.24 | XGBoost 2x lepší |
+| **Precision (Buy)** | 0.38 | 0.35 | XGBoost |
 
-Model zatím nedosahuje uspokojivých výsledků. Možné směry zlepšení:
+**Závěr:** XGBoost výrazně překonává PyTorch neuronovou síť na tomto datasetu.
+
+### Možné směry zlepšení PyTorch modelu
 - Focal Loss pro nevyvážená data
 - Class weights
 - Lepší feature engineering

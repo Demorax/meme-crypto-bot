@@ -28,13 +28,13 @@ V rámci učení PyTorch frameworku probíhá reimplementace buy modelu pomocí 
 
 | Komponenta | Status |
 |------------|--------|
-| Data pipeline | ✅ Hotovo |
-| Custom Dataset & DataLoader | ✅ Hotovo |
-| Feedforward Neural Network | ✅ Hotovo |
-| TimeSeriesSplit (správné rozdělení pro time series) | ✅ Hotovo |
-| SMOTE (pouze na trénovacích datech) | ✅ Hotovo |
-| PR Curve analýza | ✅ Hotovo |
-| Výkonnost modelu | ⚠️ Vyžaduje zlepšení |
+| Data pipeline | Hotovo |
+| Custom Dataset & DataLoader | Hotovo |
+| Feedforward Neural Network | Hotovo |
+| TimeSeriesSplit | Hotovo |
+| SMOTE | Hotovo |
+| PR Curve analýza | Hotovo |
+| Výkonnost modelu | Vyžaduje zlepšení |
 
 ### Aktuální výsledky (TimeSeriesSplit - férové porovnání)
 

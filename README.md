@@ -18,7 +18,45 @@ Zpočátku jsem experimentoval s neuronovou sítí pro predikci příležitostí
 - **Neuronové sítě měly problémy najít jasné vzory** – Síť nedokázala konzistentně rozpoznat signály k nákupu/prodeji,
 pravděpodobně kvůli nedostatku hlubokých interakcí mezi features, které by odůvodnily složitější model.
 
-## ️ Upozornění
+---
+
+## PyTorch Experiment (Work in Progress)
+
+V rámci učení PyTorch frameworku probíhá reimplementace buy modelu pomocí neuronové sítě.
+
+### Aktuální stav
+
+| Komponenta | Status |
+|------------|--------|
+| Data pipeline | ✅ Hotovo |
+| Custom Dataset & DataLoader | ✅ Hotovo |
+| Feedforward Neural Network | ✅ Hotovo |
+| TimeSeriesSplit (správné rozdělení pro time series) | ✅ Hotovo |
+| SMOTE (pouze na trénovacích datech) | ✅ Hotovo |
+| PR Curve analýza | ✅ Hotovo |
+| Výkonnost modelu | ⚠️ Vyžaduje zlepšení |
+
+### Aktuální výsledky
+
+```
+Average Precision (AP): 0.079
+Best F1 Score: 0.18
+```
+
+Model zatím nedosahuje uspokojivých výsledků. Možné směry zlepšení:
+- Focal Loss pro nevyvážená data
+- Class weights
+- Lepší feature engineering
+- Úprava labeling strategie
+
+### Soubory
+
+- `pytorch.ipynb` - Hlavní notebook s PyTorch implementací
+
+
+---
+
+## Upozornění
 
 Tento projekt je **proof of concept** a je určen **pouze pro vzdělávací a výzkumné účely**.
 **Nejedná se o finanční poradenství**, investiční doporučení nebo obchodní signály.

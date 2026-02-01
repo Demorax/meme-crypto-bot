@@ -18,7 +18,49 @@ Zpočátku jsem experimentoval s neuronovou sítí pro predikci příležitostí
 - **Neuronové sítě měly problémy najít jasné vzory** – Síť nedokázala konzistentně rozpoznat signály k nákupu/prodeji,
 pravděpodobně kvůli nedostatku hlubokých interakcí mezi features, které by odůvodnily složitější model.
 
-## ️ Upozornění
+---
+
+## PyTorch Experiment (Work in Progress)
+
+V rámci učení PyTorch frameworku probíhá reimplementace buy modelu pomocí neuronové sítě.
+
+### Aktuální stav
+
+| Komponenta | Status |
+|------------|--------|
+| Data pipeline | ✅ Hotovo |
+| Custom Dataset & DataLoader | ✅ Hotovo |
+| Feedforward Neural Network | ✅ Hotovo |
+| TimeSeriesSplit (správné rozdělení pro time series) | ✅ Hotovo |
+| SMOTE (pouze na trénovacích datech) | ✅ Hotovo |
+| PR Curve analýza | ✅ Hotovo |
+| Výkonnost modelu | ⚠️ Vyžaduje zlepšení |
+
+### Aktuální výsledky (TimeSeriesSplit - férové porovnání)
+
+| Metrika | XGBoost | PyTorch | Vítěz |
+|---------|---------|---------|-------|
+| **Average Precision** | 0.193 | 0.168 | XGBoost +15% |
+| **F1 Score (Buy)** | 0.44 | 0.29 | XGBoost +52% |
+| **Recall (Buy)** | 0.52 | 0.24 | XGBoost 2x lepší |
+| **Precision (Buy)** | 0.38 | 0.35 | XGBoost |
+
+**Závěr:** XGBoost výrazně překonává PyTorch neuronovou síť na tomto datasetu.
+
+### Možné směry zlepšení PyTorch modelu
+- Focal Loss pro nevyvážená data
+- Class weights
+- Lepší feature engineering
+- Úprava labeling strategie
+
+### Soubory
+
+- `pytorch.ipynb` - Hlavní notebook s PyTorch implementací
+
+
+---
+
+## Upozornění
 
 Tento projekt je **proof of concept** a je určen **pouze pro vzdělávací a výzkumné účely**.
 **Nejedná se o finanční poradenství**, investiční doporučení nebo obchodní signály.

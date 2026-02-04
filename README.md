@@ -67,3 +67,73 @@ Tento projekt je **proof of concept** a je určen **pouze pro vzdělávací a v�
 Minulá výkonnost **není** indikací budoucích výsledků.
 
 **Používejte tento projekt na vlastní riziko.**
+
+---
+
+## Web Aplikace (FastAPI + Streamlit)
+
+Projekt obsahuje webovou aplikaci pro vizualizaci a simulaci predikcí v reálném čase.
+
+### Screenshots
+
+![Dashboard - simulace běží](docs/images/frontend_1.png)
+
+![Dashboard - detail predikcí](docs/images/frontend_2.png)
+
+### Architektura
+
+```
+┌─────────────────┐     HTTP      ┌─────────────────┐
+│   Streamlit     │ ◄──────────► │    FastAPI      │
+│   (Frontend)    │   /predict    │   (Backend)     │
+│   port 8501     │   /simulate   │   port 8000     │
+└─────────────────┘               └─────────────────┘
+                                          │
+                                          ▼
+                                  ┌─────────────────┐
+                                  │  XGBoost Model  │
+                                  │  + Test Data    │
+                                  └─────────────────┘
+```
+
+### Instalace
+
+```bash
+pip install -r requirements.txt
+```
+
+### Spuštění
+
+**1. Spusťte FastAPI backend (v jednom terminálu):**
+
+```bash
+uvicorn api.main:app --reload --port 8000
+```
+
+**2. Spusťte Streamlit frontend (v druhém terminálu):**
+
+```bash
+streamlit run frontend/app.py
+```
+
+**3. Otevřete prohlížeč:**
+- Frontend: http://localhost:8501
+- API dokumentace: http://localhost:8000/docs
+
+### API Endpointy
+
+| Endpoint | Metoda | Popis |
+|----------|--------|-------|
+| `GET /` | GET | Health check |
+| `POST /predict` | POST | Predikce pro jeden vzorek |
+| `GET /simulate` | GET | SSE stream simulace |
+| `GET /tokens` | GET | Seznam dostupných tokenů |
+| `GET /token/{mint}` | GET | Detaily tokenu |
+
+### Funkce
+
+- **Real-time simulace** - Procházení historických dat s predikcemi modelu
+- **Interaktivní grafy** - Vizualizace market cap a predikcí pomocí Plotly
+- **BUY/NO BUY signály** - Barevné indikátory pro snadnou orientaci
+- **Confidence meter** - Zobrazení jistoty modelu
+- **Výběr tokenů** - Možnost simulovat různé tokeny z datasetu

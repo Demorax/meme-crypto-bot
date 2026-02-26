@@ -27,7 +27,6 @@ executor = ThreadPoolExecutor(max_workers=4)
 
 
 async def run_sync(func, *args):
-    """Wrapper pro sync funkce - Python 3.8 kompatibilita."""
     loop = asyncio.get_event_loop()
     return await loop.run_in_executor(executor, partial(func, *args))
 
@@ -120,7 +119,6 @@ async def simulation_generator(
     predictor: CryptoPredictor,
     data_loader: DataLoader
 ) -> AsyncGenerator[str, None]:
-    """SSE stream pro simulaci predikcí."""
     try:
         df = await run_sync(data_loader.get_token_data, mint)
         symbol = df['symbol'].iloc[0]
@@ -161,7 +159,6 @@ async def simulate(
     predictor: CryptoPredictor = Depends(get_predictor),
     data_loader: DataLoader = Depends(get_data_loader)
 ):
-    """SSE endpoint pro real-time simulaci."""
     if mint not in data_loader.data:
         raise HTTPException(status_code=404, detail=f"Token {mint} not found")
 

@@ -11,7 +11,6 @@ logger = logging.getLogger(__name__)
 
 
 class CryptoPredictor:
-    """Načítá XGBoost model a dělá predikce."""
 
     FEATURES: List[str] = [
         'marketCap_change',
@@ -53,7 +52,6 @@ class CryptoPredictor:
         return prediction, confidence
 
     def compute_features(self, df: pd.DataFrame, symbol: str) -> pd.DataFrame:
-        """Spočítá features pro market cap historii tokenu."""
         df = df.copy()
         df = df.sort_values('timestamp')
 
@@ -90,7 +88,6 @@ class CryptoPredictor:
 
 
 class DataLoader:
-    """Načítá token data z JSON souborů."""
 
     def __init__(self, data_dir: str = "data"):
         self.data_dir = Path(data_dir)
@@ -119,7 +116,6 @@ class DataLoader:
         logger.info(f"Total: {len(self.data)} tokens from {len(json_files)} files")
 
     def get_tokens(self) -> List[Dict[str, Any]]:
-        """Vrátí list tokenů s dostatkem dat pro simulaci."""
         tokens = []
         for mint, token_data in self.data.items():
             history = token_data.get("marketCapHistory", [])
@@ -135,7 +131,6 @@ class DataLoader:
         return tokens[:100]  # top 100
 
     def get_token_data(self, mint: str) -> pd.DataFrame:
-        """Vrátí DataFrame s historií market capu pro daný token."""
         if mint not in self.data:
             raise ValueError(f"Token {mint} not found")
 
